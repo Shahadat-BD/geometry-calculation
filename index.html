@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Geometry calculator </title>
+</head>
+<body class="">
+     
+    <div class="flex lg:flex-row flex-col m-4">
+        <div class="flex-1"> 
+           <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5"> 
+                <div id="random-bg-added" class="text-center shadow-md p-5 cursor-pointer">
+                    <img class='m-auto w-full h-[150px]' src="./images/triangle.png" alt="" srcset="">
+                    <h1 class="text-2xl font-semibold my-2">Triangle</h1>
+                    <p> Area : 0.5 x b x h  </p>
+                    <p class="mb-3"> Area : <span id="tri-area-calc">0</span> cm<sup>2</sup>  </p>
+                    <input class="w-20 outline-none bg-gray-200 rounded px-2 py-[2px]" type="number" placeholder="base" id="base">
+                    <span>cm</span>
+                    <input class="w-20 outline-none bg-gray-200 rounded px-2 py-[2px]" type="number" placeholder="height" id="height"> <span>cm</span> <br> <br> 
+                    <p id="eroor-message-1"><span id="message"></span></p>  
+                    <p></p>
+                    <button class="bg-blue-500 text-white px-3 py-2 rounded w-full font-bold text-lg mt-3" id="area-cal-btn" onclick="calculateTriangleArea(this)">Calculate</button>
+                </div>
+
+                <div class="text-center shadow-md p-5">
+                    <img class='m-auto w-full h-[150px]' src="./images/rectangle.png" alt="" srcset="">
+                    <h1 class="text-2xl font-semibold my-2">Rectangle</h1>
+                    <p> Area (A) = W x I  </p>
+                    <p class="mb-3"> Area : <span id="rec-area-calc">0</span> cm<sup>2</sup>  </p>
+                    <input class="w-20 outline-none bg-gray-200 rounded px-2 py-[2px]" type="number" placeholder="width" id="width">
+                    <span>cm</span>
+                    <input class="w-20 outline-none bg-gray-200 rounded px-2 py-[2px]" type="number" placeholder="length" id="length"> <span>cm</span> <br> <br> 
+                    <p id="eroor-message-2"></p>  
+                    <button class="bg-blue-500 text-white px-3 py-2 rounded w-full font-bold text-lg mt-3" id="area-cal-btn" onclick="calculateRectangleArea()">Calculate</button>
+                </div>
+
+                <div class="text-center shadow-md p-5">
+                    <img class='m-auto w-full h-[150px]' src="./images/parallelogram.png" alt="" srcset="">
+                    <h1 class="text-2xl font-semibold my-2">Parallelogram</h1>
+                    <p> Area (A) = b x h </p>
+                    <p class="mb-3"> Area : <span id="para-area-calc">0</span> cm<sup>2</sup>  </p>
+                    <input class="w-20 outline-none bg-gray-200 rounded px-2 py-[2px]" type="number" placeholder="base" id="base-para">
+                    <span>cm</span>
+                    <input class="w-20 outline-none bg-gray-200 rounded px-2 py-[2px]" type="number" placeholder="height" id="height-para"> <span>cm</span> <br> <br> 
+                    <p id="eroor-message-3"></p>  
+                    <button class="bg-blue-500 text-white px-3 py-2 rounded w-full font-bold text-lg mt-3" id="area-cal-btn" onclick="calculateParallelogramArea()">Calculate</button>
+                </div>
+
+                <div class="text-center shadow-md p-5">
+                    <img class='m-auto w-full h-[150px]' src="./images/rhombus.png" alt="" srcset="">
+                    <h1 class="text-2xl font-semibold my-2">Rhombus</h1>
+                    <p> Area (A): 0.5 x d<sub>1</sub> x d<sub>2</sub>  </p>
+                    <p class="mb-3"> Area : <span id="rhomb-area-calc">0</span> cm<sup>2</sup>  </p>
+                    <input class="w-20 outline-none bg-gray-200 rounded px-2 py-[2px]" type="number" placeholder="d1" id="diagonals-1">
+                    <span>cm</span>
+                    <input class="w-20 outline-none bg-gray-200 rounded px-2 py-[2px]" type="number" placeholder="d2" id="diagonals-2"> <span>cm</span> <br> <br> 
+                    <p id="eroor-message-4"></p>  
+                    <button class="bg-blue-500 text-white px-3 py-2 rounded w-full font-bold text-lg mt-3" id="area-cal-btn" onclick="calculateRhombusArea()">Calculate</button>
+                </div>
+
+                <div class="text-center shadow-md p-5">
+                    <img class='m-auto w-full h-[150px]' src="./images/pentagon.png" alt="" srcset="">
+                    <h1 class="text-2xl font-semibold my-2">Pentagon</h1>
+                    <p> Area (A): 0.5 x p x a  </p>
+                    <p class="mb-3"> Area : <span id="pent-area-calc">0</span> cm<sup>2</sup>  </p>
+                    <input class="w-20 outline-none bg-gray-200 rounded px-2 py-[2px]" type="number" placeholder="pentagon" id="pentagon">
+                    <span>cm</span>
+                    <input class="w-20 outline-none bg-gray-200 rounded px-2 py-[2px]" type="number" placeholder="apothem" id="apothem"> <span>cm</span><br> <br> 
+                    <p id="eroor-message-5"></p>  
+                    <button class="bg-blue-500 text-white px-3 py-2 rounded w-full font-bold text-lg mt-3" id="area-cal-btn" onclick="calculatePentagonArea()">Calculate</button>
+                </div>
+
+                <div class="text-center shadow-md p-5">
+                    <img class='m-auto w-full h-[150px]' src="./images/ellipse.png" alt="" srcset="">
+                    <h1 class="text-2xl font-semibold my-2">Ellipse</h1>
+                    <p> Area : pi x a x b </p>
+                    <p class="mb-3"> Area : <span id="ellipse-area-calc">0</span> cm<sup>2</sup>  </p>
+                    <input class="w-20 outline-none bg-gray-200 rounded px-2 py-[2px]" type="number" placeholder="a" id="semi-major">
+                    <span>cm</span>
+                    <input class="w-20 outline-none bg-gray-200 rounded px-2 py-[2px]" type="number" placeholder="b" id="semi-minor"> <span>cm</span> <br> <br> 
+                    <p id="eroor-message-6"></p>  
+                    <button class="bg-blue-500 text-white px-3 py-2 rounded w-full font-bold text-lg mt-3" id="area-cal-btn" onclick="calculateEllipseArea()">Calculate</button>
+                </div>
+
+                 
+
+           </div>
+        </div>
+        <div class="lg:w-[30%] w-full">
+              <h1 class="text-center text-3xl font-bold">Area Calculator</h1>
+              <hr class="w-2/3 border-2 border-gray-500 m-auto">
+             <div class="flex justify-around mt-5 items-center">
+
+                <div id="geometry-name">
+                
+                </div>
+                     <div id="cal-value">
+                        
+                     </div>
+
+            
+             </div>
+        </div>
+    </div>
+       
+    <script src="geumetry.js"></script>
+</body>
+</html>
